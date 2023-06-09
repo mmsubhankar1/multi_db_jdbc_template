@@ -1,0 +1,46 @@
+server:
+  port: 9080
+spring:
+  sw-datasource:
+    jdbc-url: jdbc:postgresql://10.1.13.26:5432/iitb
+    password: postgres
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 60000
+      initialization-fail-timeout: 45000
+      keepalive-time: 90000
+      max-lifetime: 240000
+      maximum-pool-size: 50
+      minimum-idle: 2
+      pool-name: muhs-CP
+    type: com.zaxxer.hikari.HikariDataSource
+  univ-datasource:
+    jdbc-url: jdbc:oracle:thin:@10.1.42.86:1521/icdms
+    password: icdms
+    username: icdms
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 60000
+      initialization-fail-timeout: 45000
+      keepalive-time: 90000
+      max-lifetime: 240000
+      maximum-pool-size: 50
+      minimum-idle: 2
+      pool-name: muhs-CP
+    type: com.zaxxer.hikari.HikariDataSource
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batchSize: 100
+          orderInserts: true
+          orderUpdates: true
+    show-sql: true
